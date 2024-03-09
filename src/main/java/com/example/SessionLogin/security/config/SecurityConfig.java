@@ -1,6 +1,8 @@
 package com.example.SessionLogin.security.config;
 
 
+import com.example.SessionLogin.security.auth.MyAccessDeniedHandler;
+import com.example.SessionLogin.security.auth.MyAuthenticationEntryPoint;
 import com.example.SessionLogin.security.entitiy.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -38,6 +40,11 @@ public class SecurityConfig {
                 .logout(logout -> logout
                         .logoutUrl("/security-login/logout")
                         .invalidateHttpSession(true).deleteCookies("JSESSIONID")
+                )
+
+                .exceptionHandling(exceptionHandler -> exceptionHandler
+                        .authenticationEntryPoint(new MyAuthenticationEntryPoint())
+                        .accessDeniedHandler(new MyAccessDeniedHandler())
                 )
 
                 .headers(headers ->
