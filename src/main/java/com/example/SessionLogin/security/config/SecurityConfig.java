@@ -13,8 +13,14 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
-@EnableWebSecurity
+/**
+ *    Form Login 방식 설정
+ *    SecurityConfig와 SercurityJwtConfig 중 골라서 사용
+*/
+//@Configuration
+//@EnableWebSecurity
+// 현재는 JWT을 기본으로 사용
+
 @RequiredArgsConstructor
 public class SecurityConfig {
 
