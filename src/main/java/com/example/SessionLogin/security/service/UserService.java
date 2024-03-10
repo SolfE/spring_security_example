@@ -35,6 +35,7 @@ public class UserService {
         userRepository.save(request.toEntity(encoder.encode(request.getPassword())));
     }
 
+    // TODO 암호화 로그인 방식 추가
     public User login(LoginRequest request) {
         Optional<User> optionalUser = userRepository.findByLoginId(request.getLoginId());
 
