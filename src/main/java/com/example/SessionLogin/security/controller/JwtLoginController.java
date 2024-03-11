@@ -92,7 +92,7 @@ public class JwtLoginController {
         model.addAttribute("loginType", "jwt-login");
         model.addAttribute("pageName", "Jwt Token 화면 로그인");
 
-        User user = userService.login(loginRequest);
+        User user = userService.login2(loginRequest);
 
         if(user == null) {
             bindingResult.reject("loginFail", "로그인 아이디 또는 비밀번호가 틀렸습니다.");
