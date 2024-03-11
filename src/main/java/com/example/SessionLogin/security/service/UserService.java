@@ -35,7 +35,6 @@ public class UserService {
         userRepository.save(request.toEntity(encoder.encode(request.getPassword())));
     }
 
-    // TODO 암호화 로그인 방식 추가
     public User login(LoginRequest request) {
         Optional<User> optionalUser = userRepository.findByLoginId(request.getLoginId());
 
@@ -46,6 +45,21 @@ public class UserService {
         User user = optionalUser.get();
 
         if(!user.getPassword().equals(request.getPassword())) {
+            return null;
+        }
+
+        return user;
+    }
+    public User login2(LoginRequest request) {
+        Optional<User> optionalUser = userRepository.findByLoginId(request.getLoginId());
+
+        if(optionalUser.isEmpty()) {
+            return null;
+        }
+
+        User user = optionalUser.get();
+        // 암호는 암호화할때마다 값이 달라지므로 내부 함수 사용하여 비교
+        if(!encoder.matches(request.getPassword(), user.getPassword())) {
             return null;
         }
 

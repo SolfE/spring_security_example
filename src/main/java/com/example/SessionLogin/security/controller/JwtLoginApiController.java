@@ -38,11 +38,10 @@ public class JwtLoginApiController {
         return "회원가입 성공";
     }
 
-    // TODO 암호화 비밀번호 로그인 방식으로 변경
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest loginRequest) {
 
-        User user = userService.login(loginRequest);
+        User user = userService.login2(loginRequest);
 
         if(user == null) {
             return "로그인 아이디 또는 비밀번호가 틀렸습니다.";
