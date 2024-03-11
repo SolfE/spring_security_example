@@ -5,6 +5,7 @@ import com.example.SessionLogin.security.service.UserService;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -31,10 +34,26 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 
-        // 헤더가 없는 경우
+        // 헤더가 없는 경우 쿠키를 헤더로 사용 시도
         if(authorizationHeader == null) {
-            filterChain.doFilter(request, response);
-            return;
+
+            if(request.getCookies() == null) {
+                filterChain.doFilter(request, response);
+                return;
+            }
+
+            Cookie jwtTokenCookie = Arrays.stream(request.getCookies())
+                            .filter(cookie -> cookie.getName().equals("jwtToken"))
+                            .findFirst()
+                            .orElse(null);
+
+            if(jwtTokenCookie == null) {
+                filterChain.doFilter(request, response);
+                return;
+            }
+
+            String jwtToken = jwtTokenCookie.getValue();
+            authorizationHeader = "Bearer " + jwtToken;
         }
 
         // 토큰값이 이상한 경우

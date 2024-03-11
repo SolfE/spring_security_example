@@ -14,7 +14,7 @@ import java.util.function.ToDoubleBiFunction;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/jwt-login")
+@RequestMapping("/api/jwt-login")
 public class JwtLoginApiController {
 
     private final UserService userService;
