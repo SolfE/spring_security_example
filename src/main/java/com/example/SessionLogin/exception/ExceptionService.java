@@ -21,4 +21,8 @@ public class ExceptionService {
         throw new MyException(ErrorCode.DATABASE_ERROR);
     }
 
+    public void runExp() {
+        throw new RuntimeException();
+    }
+
 }
