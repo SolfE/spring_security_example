@@ -32,7 +32,7 @@ public class ExceptionRestController {
         exceptionService.editComment();
     }
 
-    @GetMapping("/throw-my-exception/run-time")
+    @GetMapping("/throw-my-exception/run-tim")
     public void throwMyExcetion5() {
         exceptionService.runExp();
     }
