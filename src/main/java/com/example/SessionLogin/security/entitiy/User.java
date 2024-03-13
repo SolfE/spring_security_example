@@ -19,6 +19,9 @@ public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String provider; // 소셜로그인 제공자
+    private String providerId; // 유저 ID
+
     private String loginId;
     private String password;
     private String nickname;

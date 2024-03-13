@@ -1,4 +1,8 @@
 spring:
+  config:
+    import:
+      - classpath:/application-key.yml
+
   h2:
     console:
       enabled: true
