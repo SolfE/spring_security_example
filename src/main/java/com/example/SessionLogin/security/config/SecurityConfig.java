@@ -3,6 +3,7 @@ package com.example.SessionLogin.security.config;
 
 import com.example.SessionLogin.security.auth.MyAccessDeniedHandler;
 import com.example.SessionLogin.security.auth.MyAuthenticationEntryPoint;
+import com.example.SessionLogin.security.auth.PrincipalOauth2UserService;
 import com.example.SessionLogin.security.entitiy.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -17,12 +18,12 @@ import org.springframework.security.web.SecurityFilterChain;
  *    Form Login 방식 설정
  *    SecurityConfig와 SercurityJwtConfig 중 골라서 사용
 */
-//@Configuration
-//@EnableWebSecurity
-// 현재는 JWT을 기본으로 사용
-
+@Configuration
+@EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+
+    private final PrincipalOauth2UserService principalOauth2UserService;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception  {
@@ -46,6 +47,13 @@ public class SecurityConfig {
                 .logout(logout -> logout
                         .logoutUrl("/security-login/logout")
                         .invalidateHttpSession(true).deleteCookies("JSESSIONID")
+                )
+
+                .oauth2Login(login -> login
+                        .loginPage("/security-login/login")
+                        .defaultSuccessUrl("/security-login")
+                        .userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint
+                                .userService(principalOauth2UserService))
                 )
 
                 .exceptionHandling(exceptionHandler -> exceptionHandler

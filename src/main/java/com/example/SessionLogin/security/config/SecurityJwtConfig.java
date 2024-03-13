@@ -1,8 +1,6 @@
 package com.example.SessionLogin.security.config;
 
 
-import com.example.SessionLogin.security.auth.MyAccessDeniedHandler;
-import com.example.SessionLogin.security.auth.MyAuthenticationEntryPoint;
 import com.example.SessionLogin.security.entitiy.UserRole;
 import com.example.SessionLogin.security.jwt.JwtTokenFilter;
 import com.example.SessionLogin.security.service.UserService;
@@ -11,10 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -22,7 +18,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
-import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
@@ -30,8 +25,8 @@ import java.io.IOException;
 /**
  *    JWT 방식 설정
  */
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityJwtConfig {
 
