@@ -1,6 +1,4 @@
-# Spring Security 
-
----
+# Spring Security
 
 Spring Security를 공부하면서, 현재 자주 사용되는 로그인 기능들을 직접 구현해보며 정리했습니다.
 각 구현방식의 장단점이나 특징은 블로그에 정리해두겠습니다.
@@ -9,8 +7,6 @@ Spring Security를 공부하면서, 현재 자주 사용되는 로그인 기능�
 https://velog.io/@solfe/Session-JWT-Refresh-Token
 
 ## 목차
-
----
 
 0. [Tech Stack](##Tech Stack)
 1. [Cookie](##Cookie)
@@ -23,7 +19,6 @@ https://velog.io/@solfe/Session-JWT-Refresh-Token
 
 ## Tech Stack
 
----
 FRAMEWORK
 
 <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white">
@@ -31,8 +26,6 @@ FRAMEWORK
 
 
 ## Cookie
-
----
 
 Spring Security 없이 사용자를 식별하고 인증하기 위해 user id를 cookie에 넣었습니다.
 
@@ -43,8 +36,6 @@ Spring Security 없이 사용자를 식별하고 인증하기 위해 user id를 
 
 ## Session
 
----
-
 Spring Security 없이 사용자를 식별하고 인증하기 위해 Session id를 cookie에 넣었습니다.
 
 ### sequence diagram
@@ -53,8 +44,6 @@ Spring Security 없이 사용자를 식별하고 인증하기 위해 Session id�
 
 
 ## Form Login
-
----
 
 Spring Security의 formLogin 설정을 활용한 로그인.
 
@@ -73,8 +62,6 @@ Spring Security의 formLogin 설정을 활용한 로그인.
 
 ## Jason Web Token
 
----
-
 JWT 방식을 활용한 로그인
 
 ### sequence diagram
@@ -84,14 +71,10 @@ JWT 방식을 활용한 로그인
 
 ## Refresh Token
 
----
-
 미구현
 
 
 ## OAuth
-
----
 
 OAuth를 활용한 회원가입 및 로그인
 
