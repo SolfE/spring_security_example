@@ -75,18 +75,33 @@ Spring Security의 formLogin 설정을 활용한 로그인.
 
 ---
 
+JWT 방식을 활용한 로그인
+
+### sequence diagram
+
+![image](https://github.com/SolfE/spring_security_example/assets/74342496/85e103db-132c-433b-8cf6-f16a950630fd)
 
 
 ## Refresh Token
 
 ---
 
+미구현
 
 
 ## OAuth
 
 ---
 
+OAuth를 활용한 회원가입 및 로그인
+
+### sequence diagram
+
+kakao login
+
+![image](https://github.com/SolfE/spring_security_example/assets/74342496/7a3640f8-4c97-4bc4-8f4a-39c28cec8aee)
+
+이후 내부에서는 Spring Security Form로그인 방식으로 진행
 
 
 
