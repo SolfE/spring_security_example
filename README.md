@@ -8,16 +8,16 @@ https://velog.io/@solfe/Session-JWT-Refresh-Token
 
 ## 목차
 
-0. [Tech_Stack](#Tech Stack)
+0. [Tech Stack](#Tech_Stack)
 1. [Cookie](#Cookie)
 2. [Session](#Session)
-3. [Spring_Security Form_Login(Session)](#Form Login)
-4. [JWT](#Jason Web Token)
-5. [JWT_Refresh Token](#Refresh Token)
+3. [Spring Security Form Login(Session)](#Form_Login)
+4. [JWT](#Jason_Web_Token)
+5. [JWT + Refresh Token](#Refresh_Token)
 6. [OAuth](#OAuth)
 7. [참고](#참고)
 
-## Tech Stack
+## Tech_Stack
 
 FRAMEWORK
 
@@ -42,7 +42,7 @@ Spring Security 없이 사용자를 식별하고 인증하기 위해 Session id�
 ![image](https://github.com/SolfE/spring_security_example/assets/74342496/201053f0-a5fd-48ee-9114-f1fb5a3493ca)
 
 
-## Form Login
+## Form_Login
 
 Spring Security의 formLogin 설정을 활용한 로그인.
 
@@ -58,7 +58,7 @@ Spring Security의 formLogin 설정을 활용한 로그인.
 ![image](https://github.com/SolfE/spring_security_example/assets/74342496/6071e1e5-4b6a-4ac4-acac-d39757ac3958)
 
 
-## Jason Web Token
+## Jason_Web_Token
 
 JWT 방식을 활용한 로그인
 
@@ -67,7 +67,7 @@ JWT 방식을 활용한 로그인
 ![image](https://github.com/SolfE/spring_security_example/assets/74342496/ee7ae9ce-893c-441c-b3f1-cdf1a156573b)
 
 
-## Refresh Token
+## Refresh_Token
 
 미구현
 
