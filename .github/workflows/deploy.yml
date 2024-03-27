@@ -51,6 +51,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            docker login -u ${{ secrets.DOCKER_USERNAME }}
+            ${{ secrets.DOCKER_PASSWORD }}
             docker pull devsolfe/session_login:latest
             docker run -p 80:8080 session_login
