@@ -30,7 +30,7 @@ jobs:
           spring.security.oauth2.client.registration.google.client-secret: ${{ secrets.OAUTH_GOOGLE_CLIENT_SECRET }}
           spring.security.oauth2.client.registration.kakao.client-id: ${{ secrets.OAUTH_KAKAO_CLIENT_ID }}
           spring.security.oauth2.client.registration.kakao.client-secret: ${{ secrets.OAUTH_KAKAO_CLIENT_SECRET }}
-          spring.security.oauth2.client.registration.kakao.redirect-uri: http://${{ SERVER_HOST }}:8080/login/oauth2/code/kakao
+          spring.security.oauth2.client.registration.kakao.redirect-uri: http://${{ secrets.SERVER_HOST }}:8080/login/oauth2/code/kakao
 
       - name: Build with Gradle
         run: |
