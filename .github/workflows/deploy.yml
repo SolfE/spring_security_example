@@ -52,4 +52,4 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker pull devsolfe/session_login:latest
-            docker run -p 80:8080 session_login
+            docker run -p 80:8080 devsolfe/session_login:latest
