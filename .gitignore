@@ -35,6 +35,3 @@ out/
 
 ### VS Code ###
 .vscode/
-
-### secret key ###
-/src/main/resources/application-key.yml
