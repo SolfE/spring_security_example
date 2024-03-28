@@ -21,6 +21,17 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
+      - name: Set yml file
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: ./src/main/resources/application-key.yml
+        env:
+          spring.security.oauth2.client.registration.google.client-id: ${{ secrets.OAUTH_GOOGLE_CLIENT_ID }}
+          spring.security.oauth2.client.registration.google.client-secret: ${{ secrets.OAUTH_GOOGLE_CLIENT_SECRET }}
+          spring.security.oauth2.client.registration.kakao.client-id: ${{ secrets.OAUTH_KAKAO_CLIENT_ID }}
+          spring.security.oauth2.client.registration.kakao.client-secret: ${{ secrets.OAUTH_KAKAO_CLIENT_SECRET }}
+          spring.security.oauth2.client.registration.kakao.redirect-uri: http://${{ SERVER_HOST }}:8080/login/oauth2/code/kakao
+
       - name: Build with Gradle
         run: |
           chmod +x ./gradlew
@@ -52,4 +63,14 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker pull devsolfe/session_login:latest
-            docker run -d -p 80:8080 devsolfe/session_login:latest
+            
+            if [ "$(docker ps -aq -f name=server)" ]
+            then
+              echo "[ spring is running ]"
+              docker stop server
+              docker rm server
+            else
+              echo "[ spring is not running ]"
+            fi
+            
+            docker run -d --name server -p 80:8080 devsolfe/session_login
