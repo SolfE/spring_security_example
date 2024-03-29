@@ -15,7 +15,8 @@ https://velog.io/@solfe/Session-JWT-Refresh-Token
 4. [JWT](#Jason_Web_Token)
 5. [JWT + Refresh Token](#Refresh_Token)
 6. [OAuth](#OAuth)
-7. [참고](#참고)
+7. [CI/CD](#CI_CD)
+8[참고](#참고)
 
 ## Tech_Stack
 
@@ -84,7 +85,8 @@ kakao login
 
 이후 내부에서는 Spring Security Form Login(JSESSION) 인증인가 방식으로 진행
 
-
+## CI_CD
+![image](https://github.com/SolfE/spring_security_example/assets/74342496/609d7989-0c03-4e3a-acce-6915ab875737)
 
 ## 참고
 https://chb2005.tistory.com/173
